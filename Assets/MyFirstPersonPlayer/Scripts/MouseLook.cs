@@ -27,4 +27,8 @@ public class MouseLook : MonoBehaviour {
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
         transform.localRotation = Quaternion.Euler(verticalLookRotation, 0f, 0f);
     }
+
+    private void OnApplicationFocus(bool focusStatus) {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }
