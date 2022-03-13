@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour {
     public LayerMask groundMask;
     public bool isGrounded;
 
+    public float jumpHeight = 3f;
+
     private void Awake() {
         gravity *= gravityMultiplier;
         controller = GetComponent<CharacterController>();
@@ -42,6 +44,11 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        // Jump velocity should be $\sqrt{-2 \times jumpHeight \times gravity}$
+        if (Input.GetButtonDown("Jump") && isGrounded) {
+            velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
+        }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
