@@ -1440,11 +1440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826450088584990, guid: 119551172e2002344983c075ab97ef79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4826450088584990, guid: 119551172e2002344983c075ab97ef79, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.29
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4826450088584990, guid: 119551172e2002344983c075ab97ef79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1501,6 +1501,8 @@ MonoBehaviour:
   damage: 10
   range: 100
   cam: {fileID: 670603521}
+  muzzleFlash: {fileID: 1299632837}
+  hitForce: 10
 --- !u!1 &877070775
 GameObject:
   m_ObjectHideFlags: 0
