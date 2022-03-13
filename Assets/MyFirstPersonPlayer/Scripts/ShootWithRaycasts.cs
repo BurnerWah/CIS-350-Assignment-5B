@@ -29,6 +29,9 @@ public class ShootWithRaycasts : MonoBehaviour {
         RaycastHit hitInfo;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo)) {
             Debug.Log(hitInfo.transform.name);
+
+            Target target = hitInfo.transform.GetComponent<Target>();
+            target?.TakeDamage(damage);
         }
     }
 }
