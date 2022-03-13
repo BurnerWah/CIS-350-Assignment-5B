@@ -11,7 +11,12 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterController controller;
     public float speed = 12f;
 
+    public Vector3 velocity;
+    public float gravity = -9.81f;
+    public float gravityMultiplier = 2f;
+
     private void Awake() {
+        gravity *= gravityMultiplier;
         controller = GetComponent<CharacterController>();
     }
 
@@ -27,5 +32,8 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 }
